@@ -1,5 +1,5 @@
 # ИНСТРУКЦИЯ ДЛЯ ЗАПУСКА ПРОЕКТА: 
-## Notepad/VS Code/Terminal: Открываем терминал и вводим команды:
+## Notepad/VS Code/Terminal: Открываем терминал (НЕОБХОДИМО перейти в директорию проекта с помощью команы cd %PATH_TO_DIR%) и вводим команды:
 ### 1)Для Windows PowerShell: 
 #### gcc code_file_name.c -o output_file_name.exe
 #### /.output_file_name.exe
