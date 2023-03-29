@@ -1,35 +1,49 @@
+#include <stdio.h>
 #include "sem3_3.h"
 
-void count_digits(int digits_count[]) {
-    int c;
-    while ((c = getchar()) != EOF) {
-        if (c >= '0' && c <= '9') {
-            digits_count[c - '0']++;
+#define MAX_DIGITS 10   
+
+int get_num_digits(char input[]) {
+    int num_digits = 0;
+    for (int i = 0; input[i] != '\0'; i++) {
+        if (input[i] >= '0' && input[i] <= '9') {
+            num_digits++;
         }
-        c = getchar();
+    }
+    return num_digits;
+}
+
+void fill_digit_frequencies(char input[], int frequencies[]) {
+    for (int i = 0; input[i] != '\0'; i++) {
+        if (input[i] >= '0' && input[i] <= '9') {
+            int digit = input[i] - '0';
+            frequencies[digit]++;
+        }
     }
 }
-void print_horizontal_histogram(int digits_count[]) {
-    for (int i = 0; i < 10; i++) {
+
+void print_horizontal_histogram(int frequencies[]) {
+    printf("Horizontal Histogram:\n");
+    for (int i = 0; i < MAX_DIGITS; i++) {
         printf("%d: ", i);
-        for (int j = 0; j < digits_count[i]; j++) {
-            printf("#");
+        for (int j = 0; j < frequencies[i]; j++) {
+            putchar('#');
         }
-        printf("\n");
+        putchar('\n');
     }
 }
 
-void print_vertical_histogram(int digits_count[]) {
-    int max_count = 0;
-    for (int i = 0; i < 10; i++) {
-        if (digits_count[i] > max_count) {
-            max_count = digits_count[i];
+void print_vertical_histogram(int frequencies[]) {
+    printf("Vertical Histogram:\n");
+    int max_frequency = 0;
+    for (int i = 0; i < MAX_DIGITS; i++) {
+        if (frequencies[i] > max_frequency) {
+            max_frequency = frequencies[i];
         }
     }
-
-    for (int row = max_count; row > 0; row--) {
-        for (int col = 0; col < 10; col++) {
-            if (digits_count[col] >= row) {
+    for (int i = max_frequency; i > 0; i--) {
+        for (int j = 0; j < MAX_DIGITS; j++) {
+            if (frequencies[j] >= i) {
                 printf("#\t");
             } else {
                 printf("\t");
@@ -37,15 +51,9 @@ void print_vertical_histogram(int digits_count[]) {
         }
         printf("\n");
     }
-
-    for (int col = 0; col < 10; col++) {
-        printf("#\t");
+    for (int i = 0; i < MAX_DIGITS; i++) {
+        printf("%d\t", i);
     }
-    printf("\n");
-
-    for (int col = 0; col < 10; col++) {
-        printf("%d\t", col);
-    }
-    printf("\n");
 }
+
 
