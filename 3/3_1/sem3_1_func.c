@@ -30,9 +30,7 @@ string str_fill_a_z(string old) {
             s.data[s.len++] = old.data[i++];
         }
         else {
-            if (charGroup(old.data[i]) > -1 &&
-                old.data[i+1] == '-' &&
-                charGroup(old.data[i]) == charGroup(old.data[i+2]) ) {
+            if (charGroup(old.data[i]) > -1 && old.data[i+1] == '-' && charGroup(old.data[i]) == charGroup(old.data[i+2]) ) {
             char z;
             if (old.data[i] <= old.data[i+2]) {
                 for (z = old.data[i]; z <= old.data[i+2]; z++) {
