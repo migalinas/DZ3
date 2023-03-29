@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "sem3_3.h"
 
 #define MAX_DIGITS 10   
