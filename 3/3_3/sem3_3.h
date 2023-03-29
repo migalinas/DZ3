@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void count_digits(int digits_count[]);
-void print_horizontal_histogram(int digits_count[]);
-void print_vertical_histogram(int digits_count[]);
-
+int get_num_digits(char input[]);
+void fill_digit_frequencies(char input[], int frequencies[]);
+void print_horizontal_histogram(int frequencies[]);
+void print_vertical_histogram(int frequencies[]);
